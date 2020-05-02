@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lobster", cursive;
+  background: rgb(243, 240, 235);
+  color: rgb(172, 8, 98);
+}
+.heading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#heading {
+  text-align: center;
+  margin-top: 5vh;
+  font-size: 4rem;
+}
+
+.search-form {
+  padding: 2rem;
+  display: flex;
+}
+
+.search-form input {
+  font-size: 2rem;
+  padding: 0.5rem;
+  width: 100%;
+  border: none;
+  border: 2px solid rgb(172, 8, 98);
+}
+
+.search-form button {
+  border: none;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background: rgb(172, 8, 98);
+  color: white;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  width: 80%;
+  margin: auto;
+  row-gap: 5rem;
+  column-gap: 3rem;
+  padding: 5rem 0;
+}
+
+.gallery .photo-container {
+  position: relative;
+}
+.gallery .photo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.gallery .photo-container .fa-heart {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  font-size: 3rem;
+  transition: all 0.3s ease-in-out;
+  color: transparent !important;
+
+  -webkit-text-stroke: 1.5px rgb(255, 255, 255);
+  stroke-width: 30px;
+  transition: color 0.7s ease-in-out;
+  cursor: pointer;
+  -webkit-filter: drop-shadow(0px 0px 25px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+}
+
+.gallery .photo-container .fa-heart:hover {
+  animation: bigger 0.3s ease alternate 2;
+  color: rgba(172, 8, 98, 0.35) !important;
+}
+
+.gallery .photo-container .fa-heart.like {
+  color: rgb(172, 8, 98) !important;
+}
+
+.gallery .photo-container .img-text {
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  position: absolute;
+  bottom: 0;
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  clip-path: circle(5px at 110% 110%);
+  -webkit-clip-path: circle(5px at 110% 110%);
+  transition: all 0.7s ease-out;
+}
+.gallery .photo-container .img-text a {
+  margin: 2rem 0;
+  font-size: 1.4rem;
+  color: rgb(255, 255, 255);
+}
+
+.gallery .photo-container .img-text.open {
+  clip-path: circle(1000px at 110% 110%);
+  -webkit-clip-path: circle(1000px at 110% 110%);
+}
+.nav-button {
+  min-height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.more {
+  padding: 1rem 3rem;
+  background: rgb(172, 8, 98);
+  color: white;
+  cursor: pointer;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.loader {
+  margin-bottom: 5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.loader.show {
+  opacity: 1;
+}
+.circle {
+  background-color: rgb(172, 8, 98);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 5px;
+  animation: bounce 0.5s ease-in infinite;
+}
+
+.circle:nth-of-type(2) {
+  animation-delay: 0.1s;
+}
+.circle:nth-of-type(3) {
+  animation-delay: 0.2s;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes bigger {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
